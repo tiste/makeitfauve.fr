@@ -16,21 +16,25 @@
 	<body id="m-background">
 		<div class="container-fluid pll prl ptx">
 			<div class="row">
-				<input type="color" onclick="updateColor('m-background', this)" onchange="updateColor('m-background', this)" class="btn btn-default btn-xs">
-				<input type="file" title="Parcourir" onchange="updateImage('m-background', this)" class="btn btn-default btn-xs" />
-				<input type="button" value="L'avoir" onclick="toImage()" class="btn btn-default btn-xs" />
+				<input type="color" onclick="updateColor('m-background', this)" onchange="updateColor('m-background', this)" class="btn btn-default btn-xs hide-to-upload">
+				<input type="file" title="Parcourir" onchange="updateImage('m-background', this)" class="btn btn-default btn-xs hide-to-upload" />
+				<input type="button" value="L'avoir" onclick="toImage()" class="btn btn-default btn-xs hide-to-upload" />
 			</div>
 			<div class="container">
 				<div class="row">
 					<div class="m-generator pull-center">
 						<div id="m-background--logo">
-							<div class="m-generator--inputs">
+							<div class="m-generator--inputs hide-to-upload">
 								<input type="color" onclick="updateColor('m-background--logo', this)" onchange="updateColor('m-background--logo', this)" class="btn btn-default btn-xs">
 								<input type="file" title="Parcourir" onchange="updateImage('m-background--logo', this)" class="btn btn-default btn-xs pull-center" />
 							</div>
 						</div>
 					</div>
 				</div>
+			</div>
+
+			<div class="m-copyright hide-to-upload">
+				<p>Made with <span class="glyphicon glyphicon-heart" style="color: #e74c3c;"></span> in France by <a href="http://tiste.io">Tiste</a></p>
 			</div>
 		</div>
 

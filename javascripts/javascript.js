@@ -20,6 +20,6 @@ function updateColor(id, input) {
 }
 
 function toImage() {
-  var inputs = $('input, .file-input-wrapper');
+  var inputs = $('.hide-to-upload');
   inputs.hide();
 }

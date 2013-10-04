@@ -42,3 +42,10 @@ html, body {
   -webkit-mask-image: url(../images/frame.png);
   background: url(../images/fauve.jpg);
 }
+
+.m-copyright {
+  position: absolute;
+  bottom: 0px;
+  right: 10px;
+  text-align: right;
+}
