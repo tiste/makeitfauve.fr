@@ -1,0 +1,43 @@
+html, body {
+  min-height: 100%;
+}
+
+[id*="m-background"] {
+  background-repeat: no-repeat;
+  background-position: center center;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  -webkit-transition: background .6s linear;
+  -moz-transition: background .6s linear;
+  -o-transition: background .6s linear;
+  transition: background .6s linear;
+}
+
+.pull-center {
+  margin: auto;
+}
+
+.m-generator {
+  position: absolute;
+  top: 0; left: 0; bottom: 0; right: 0;
+}
+
+.m-generator--inputs {
+  position: absolute;
+  top: 100px;
+  left: 20px;
+}
+
+.m-generator,
+#m-background--logo {
+  width: 500px;
+  height: 500px;
+}
+
+#m-background--logo {
+  overflow: hidden;
+  -webkit-mask-image: url(../images/frame.png);
+  background: url(../images/fauve.jpg);
+}
