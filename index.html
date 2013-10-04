@@ -16,6 +16,7 @@
 	<body id="m-background">
 		<div class="container-fluid pll prl ptx">
 			<div class="row">
+				<input type="color" onclick="updateColor('m-background', this)" onchange="updateColor('m-background', this)" class="btn btn-default btn-xs">
 				<input type="file" title="Parcourir" onchange="updateImage('m-background', this)" class="btn btn-default btn-xs" />
 			</div>
 			<div class="container">
@@ -23,6 +24,7 @@
 					<div class="m-generator pull-center">
 						<div id="m-background--logo">
 							<div class="m-generator--inputs">
+								<input type="color" onclick="updateColor('m-background--logo', this)" onchange="updateColor('m-background--logo', this)" class="btn btn-default btn-xs">
 								<input type="file" title="Parcourir" onchange="updateImage('m-background--logo', this)" class="btn btn-default btn-xs pull-center" />
 							</div>
 						</div>

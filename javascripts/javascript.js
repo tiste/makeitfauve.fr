@@ -12,3 +12,9 @@ function updateImage(id, input) {
     reader.readAsDataURL(input.files[0]);
   }
 }
+
+function updateColor(id, input) {
+  if (input.value !== undefined) {
+    document.getElementById(id).style.background = input.value;
+  }
+}
