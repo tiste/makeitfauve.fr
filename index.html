@@ -4,7 +4,7 @@
 		<title>Make it FAUVE ≠</title>
 		<meta charset="utf-8" />
 		<meta name="author" content="Baptiste Lecocq" />
-		<meta name="description" content="FAUVE, c'est un esprit, une émotion, des mecs souhaitant niquer le Blizzard, mais c'est aussi un logo." />
+		<meta name="description" content="FAUVE, c'est un esprit, des émotions, des mecs souhaitant niquer le Blizzard, mais c'est aussi un logo." />
 		<link rel="stylesheet" href="stylesheets/bootstrap.css" />
 		<link rel="stylesheet" href="stylesheets/margin-padding.css" />
 		<link rel="stylesheet" href="stylesheets/style.css" />
@@ -18,6 +18,7 @@
 			<div class="row">
 				<input type="color" onclick="updateColor('m-background', this)" onchange="updateColor('m-background', this)" class="btn btn-default btn-xs">
 				<input type="file" title="Parcourir" onchange="updateImage('m-background', this)" class="btn btn-default btn-xs" />
+				<input type="button" value="L'avoir" onclick="toImage()" class="btn btn-default btn-xs" />
 			</div>
 			<div class="container">
 				<div class="row">
@@ -35,6 +36,7 @@
 
 		<script type="text/javascript" src="javascripts/jquery-2.0.3.min.js"></script>
 		<script type="text/javascript" src="javascripts/bootstrap.file-input.js"></script>
+		<script type="text/javascript" src="javascripts/html2canvas.js"></script>
 		<script type="text/javascript" src="javascripts/javascript.js"></script>
 	</body>
 </html>

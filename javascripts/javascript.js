@@ -18,3 +18,8 @@ function updateColor(id, input) {
     document.getElementById(id).style.background = input.value;
   }
 }
+
+function toImage() {
+  var inputs = $('input, .file-input-wrapper');
+  inputs.hide();
+}
