@@ -15,14 +15,33 @@ $(function () {
   canvasBg.setAttribute('width', $(window).width());
   canvasBg.setAttribute('height', $(window).height());
 
-  var image = new Image();
-  image.src = 'images/fauve.jpg';
+  var rand  = Math.floor((Math.random() * 5));
+  var imageLogo = new Image();
+  imageLogo.src = 'images/fauve' + rand + '.jpg';
 
-  image.onload = function () {
+  imageLogo.onload = function () {
     canvasLogo.width = canvasLogo.width;
     ctxLogo.drawImage(mask, 0, 0);
     ctxLogo.globalCompositeOperation = 'source-in';
-    ctxLogo.drawImage(image, 0, 0, image.width * (canvasLogo.width/image.height), canvasLogo.width);
+
+    if (imageLogo.height > imageLogo.width) {
+      ctxLogo.drawImage(imageLogo, 0, 0, canvasLogo.width, imageLogo.height * (canvasLogo.width/imageLogo.width));
+    } else {
+      ctxLogo.drawImage(imageLogo, 0, 0, imageLogo.width * (canvasLogo.width/imageLogo.height), canvasLogo.width);
+    }
+  }
+
+  var imageBg = new Image();
+  imageBg.src = 'images/fauve' + ((rand % 4) + 1) + '.jpg';
+
+  imageBg.onload = function () {
+    canvasBg.width = canvasBg.width;
+
+    if (imageBg.height > imageBg.width) {
+      ctxBg.drawImage(imageBg, 0, 0, canvasBg.width, imageBg.height * (canvasBg.width/imageBg.width));
+    } else {
+      ctxBg.drawImage(imageBg, 0, 0, imageBg.width * (canvasBg.width/imageBg.height), canvasBg.width);
+    }
   }
 });
 
