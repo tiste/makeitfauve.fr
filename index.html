@@ -7,6 +7,7 @@
 		<meta name="description" content="FAUVE, c'est un esprit, des émotions, des mecs souhaitant niquer le Blizzard, mais c'est aussi un logo." />
 		<link rel="stylesheet" href="stylesheets/bootstrap.css" />
 		<link rel="stylesheet" href="stylesheets/margin-padding.css" />
+		<link rel="stylesheet" href="stylesheets/spectrum.css" />
 		<link rel="stylesheet" href="stylesheets/style.css" />
 		<script type="text/javascript" src="javascripts/html5shiv.js"></script>
 		<!--[if lt IE 9]>
@@ -15,25 +16,22 @@
 	</head>
 	<body id="m-background">
 		<div class="container-fluid pll prl ptx">
-			<div class="row">
-				<input type="color" onclick="updateColor('m-background', this)" onchange="updateColor('m-background', this)" class="btn btn-default btn-xs hide-to-upload">
-				<input type="file" title="Parcourir" onchange="updateImage('m-background', this)" class="btn btn-default btn-xs hide-to-upload" />
-				<input type="button" value="L'avoir" onclick="toImage()" class="btn btn-default btn-xs hide-to-upload" />
+			<div class="row hide-to-upload">
+				<input type="color" onclick="updateColor('m-background', this)" onchange="updateColor('m-background', this)" class="btn btn-default btn-xs">
+				<input type="file" title="Parcourir" onchange="updateImage('m-background', this)" class="btn btn-default btn-xs" />
+				<input type="button" value="L'avoir" onclick="toImage()" class="btn btn-default btn-xs" />
 			</div>
-			<div class="container">
-				<div class="row">
-					<div class="m-generator pull-center">
-						<div id="m-background--logo">
-							<div class="m-generator--inputs hide-to-upload">
-								<input type="color" onclick="updateColor('m-background--logo', this)" onchange="updateColor('m-background--logo', this)" class="btn btn-default btn-xs">
-								<input type="file" title="Parcourir" onchange="updateImage('m-background--logo', this)" class="btn btn-default btn-xs pull-center" />
-							</div>
-						</div>
+
+			<div class="m-logo pos-absolute pull-center">
+				<div id="m-logo--background">
+					<div class="m-logo--inputs pos-absolute hide-to-upload">
+						<input type="color" onclick="updateColor('m-logo--background', this)" onchange="updateColor('m-logo--background', this)" class="btn btn-default btn-xs">
+						<input type="file" title="Parcourir" onchange="updateImage('m-logo--background', this)" class="btn btn-default btn-xs pull-center" />
 					</div>
 				</div>
 			</div>
 
-			<div class="m-copyright hide-to-upload">
+			<div class="m-copyright pos-absolute hide-to-upload">
 				<p>Made with <span class="glyphicon glyphicon-heart" style="color: #e74c3c;"></span> in France by <a href="http://tiste.io">Tiste</a></p>
 			</div>
 		</div>
@@ -41,6 +39,7 @@
 		<script type="text/javascript" src="javascripts/jquery-2.0.3.min.js"></script>
 		<script type="text/javascript" src="javascripts/bootstrap.file-input.js"></script>
 		<script type="text/javascript" src="javascripts/html2canvas.js"></script>
+		<script type="text/javascript" src="javascripts/spectrum.js"></script>
 		<script type="text/javascript" src="javascripts/javascript.js"></script>
 	</body>
 </html>

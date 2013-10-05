@@ -2,7 +2,7 @@ html, body {
   min-height: 100%;
 }
 
-[id*="m-background"] {
+[id*="m-"] {
   background-repeat: no-repeat;
   /** UGLY HACK: avoid multi lines of javascript **/
   background-position: center center !important;
@@ -20,31 +20,32 @@ html, body {
   margin: auto;
 }
 
-.m-generator {
+.pos-absolute {
   position: absolute;
+}
+
+.m-logo {
   top: 0; left: 0; bottom: 0; right: 0;
 }
 
-.m-generator--inputs {
-  position: absolute;
+.m-logo--inputs {
   top: 100px;
   left: 20px;
 }
 
-.m-generator,
-#m-background--logo {
+.m-logo,
+#m-logo--background {
   width: 500px;
   height: 500px;
 }
 
-#m-background--logo {
+#m-logo--background {
   overflow: hidden;
   -webkit-mask-image: url(../images/frame.png);
   background: url(../images/fauve.jpg);
 }
 
 .m-copyright {
-  position: absolute;
   bottom: 0px;
   right: 10px;
   text-align: right;
