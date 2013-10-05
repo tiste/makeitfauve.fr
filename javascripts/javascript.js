@@ -1,7 +1,9 @@
-var canvasLogo, ctxLogo, mask;
+var canvasBg, canvasLogo, ctxBg, ctxLogo, mask;
 
 $(document).ready(function () {
+  canvasBg    = document.getElementById('m-background');
   canvasLogo  = document.getElementById('m-logo--background');
+  ctxBg       = canvasBg.getContext('2d');
   ctxLogo     = canvasLogo.getContext('2d');
   mask        = new Image();
   mask.src    = 'images/frame.png';
@@ -10,6 +12,9 @@ $(document).ready(function () {
 $(function () {
 	$('input[type=file]').bootstrapFileInput();
 
+  canvasBg.setAttribute('width', $(window).width());
+  canvasBg.setAttribute('height', $(window).height());
+
   var image = new Image();
   image.src = 'images/fauve.jpg';
 
@@ -17,7 +22,7 @@ $(function () {
     canvasLogo.width = canvasLogo.width;
     ctxLogo.drawImage(mask, 0, 0);
     ctxLogo.globalCompositeOperation = 'source-in';
-    ctxLogo.drawImage(image, 0, 0, image.width * (500/image.height), 500);
+    ctxLogo.drawImage(image, 0, 0, image.width * (canvasLogo.width/image.height), canvasLogo.width);
   }
 });
 
@@ -26,7 +31,18 @@ function updateBackground(id, input) {
     var reader = new FileReader();
 
     reader.onload = function (e) {
-      document.getElementById(id).style.background = 'url(' + e.target.result + ')';
+      var image = new Image();
+      image.src = e.target.result;
+
+      image.onload = function () {
+        canvasBg.width = canvasBg.width;
+
+        if (image.height > image.width) {
+          ctxBg.drawImage(image, 0, 0, canvasBg.width, image.height * (canvasBg.width/image.width));
+        } else {
+          ctxBg.drawImage(image, 0, 0, image.width * (canvasBg.width/image.height), canvasBg.width);
+        }
+      }
     };
     reader.readAsDataURL(input.files[0]);
   }
@@ -34,11 +50,22 @@ function updateBackground(id, input) {
 
 function updateColor(id, input) {
   if (input.value !== undefined) {
-    document.getElementById(id).style.background = input.value;
+    ctxBg.beginPath();
+    ctxBg.rect(0, 0, canvasBg.width, canvasBg.width);
+    ctxBg.fillStyle = input.value;
+    ctxBg.fill();
+
+    var image = new Image();
+    image.src = canvasBg.toDataURL('image/png');
+
+    image.onload = function () {
+      canvasBg.width = canvasBg.width;
+      ctxBg.drawImage(image, 0, 0);
+    }
   }
 }
 
-function updateCanvasBackground(id, input) {
+function updateLogoBackground(id, input) {
   if (input.files && input.files[0]) {
     var reader = new FileReader();
 
@@ -52,9 +79,9 @@ function updateCanvasBackground(id, input) {
         ctxLogo.globalCompositeOperation = 'source-in';
 
         if (image.height > image.width) {
-          ctxLogo.drawImage(image, 0, 0, 500, image.height * (500/image.width));
+          ctxLogo.drawImage(image, 0, 0, canvasLogo.width, image.height * (canvasLogo.width/image.width));
         } else {
-          ctxLogo.drawImage(image, 0, 0, image.width * (500/image.height), 500);
+          ctxLogo.drawImage(image, 0, 0, image.width * (canvasLogo.width/image.height), canvasLogo.width);
         }
       }
     };
@@ -62,15 +89,15 @@ function updateCanvasBackground(id, input) {
   }
 }
 
-function updateCanvasColor(id, input) {
+function updateLogoColor(id, input) {
   if (input.value !== undefined) {
     ctxLogo.beginPath();
-    ctxLogo.rect(0, 0, 500, 500);
+    ctxLogo.rect(0, 0, canvasLogo.width, canvasLogo.width);
     ctxLogo.fillStyle = input.value;
     ctxLogo.fill();
 
     var image = new Image();
-    image.src = canvasLogo.toDataURL('image/jpeg');
+    image.src = canvasLogo.toDataURL('image/png');
 
     image.onload = function () {
       canvasLogo.width = canvasLogo.width;
@@ -84,4 +111,13 @@ function updateCanvasColor(id, input) {
 function toImage() {
   var inputs = $('.hide-to-upload');
   inputs.hide();
+
+  html2canvas(document.body, {
+    onrendered: function(rendered) {
+      rendered.toBlob(function (blob) {
+        saveAs(blob, 'fauve_bg.png');
+      });
+      inputs.show();
+    }
+  });
 }

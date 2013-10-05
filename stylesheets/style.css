@@ -1,19 +1,10 @@
 html, body {
   min-height: 100%;
+  height: 100%;
 }
 
-[id*="m-"] {
-  background-repeat: no-repeat;
-  /** UGLY HACK: avoid multi lines of javascript **/
-  background-position: center center !important;
-  -webkit-background-size: cover !important;
-  -moz-background-size: cover !important;
-  -o-background-size: cover !important;
-  background-size: cover !important;
-  -webkit-transition: background .6s linear;
-  -moz-transition: background .6s linear;
-  -o-transition: background .6s linear;
-  transition: background .6s linear;
+#m-background {
+  z-index: -1;
 }
 
 .pull-center {

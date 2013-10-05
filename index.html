@@ -14,7 +14,9 @@
 
 		<![endif]-->
 	</head>
-	<body id="m-background">
+	<body>
+		<canvas id="m-background" class="pos-absolute">Votre navigateur ne supporte pas les canvas !</canvas>
+
 		<div class="container-fluid pll prl ptx">
 			<div class="row hide-to-upload">
 				<input type="color" onclick="updateColor('m-background', this)" onchange="updateColor('m-background', this)" class="btn btn-default btn-xs">
@@ -24,8 +26,8 @@
 
 			<div class="m-logo pos-absolute pull-center">
 				<div class="m-logo--inputs pos-absolute hide-to-upload">
-					<input type="color" onclick="updateCanvasColor('m-logo--background', this)" onchange="updateCanvasColor('m-logo--background', this)" class="btn btn-default btn-xs">
-					<input type="file" title="Parcourir" onchange="updateCanvasBackground('m-logo--background', this)" class="btn btn-default btn-xs pull-center" />
+					<input type="color" onclick="updateLogoColor('m-logo--background', this)" onchange="updateLogoColor('m-logo--background', this)" class="btn btn-default btn-xs">
+					<input type="file" title="Parcourir" onchange="updateLogoBackground('m-logo--background', this)" class="btn btn-default btn-xs pull-center" />
 				</div>
 
 				<canvas width="500" height="500" id="m-logo--background">Votre navigateur ne supporte pas les canvas !</canvas>
@@ -38,6 +40,8 @@
 
 		<script type="text/javascript" src="javascripts/jquery-2.0.3.min.js"></script>
 		<script type="text/javascript" src="javascripts/bootstrap.file-input.js"></script>
+		<script type="text/javascript" src="javascripts/canvas-toBlob.js"></script>
+		<script type="text/javascript" src="javascripts/FileSaver.js"></script>
 		<script type="text/javascript" src="javascripts/html2canvas.js"></script>
 		<script type="text/javascript" src="javascripts/spectrum.js"></script>
 		<script type="text/javascript" src="javascripts/javascript.js"></script>
