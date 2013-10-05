@@ -18,21 +18,21 @@
 		<div class="container-fluid pll prl ptx">
 			<div class="row hide-to-upload">
 				<input type="color" onclick="updateColor('m-background', this)" onchange="updateColor('m-background', this)" class="btn btn-default btn-xs">
-				<input type="file" title="Parcourir" onchange="updateImage('m-background', this)" class="btn btn-default btn-xs" />
+				<input type="file" title="Parcourir" onchange="updateBackground('m-background', this)" class="btn btn-default btn-xs" />
 				<input type="button" value="L'avoir" onclick="toImage()" class="btn btn-default btn-xs" />
 			</div>
 
 			<div class="m-logo pos-absolute pull-center">
-				<div id="m-logo--background">
-					<div class="m-logo--inputs pos-absolute hide-to-upload">
-						<input type="color" onclick="updateColor('m-logo--background', this)" onchange="updateColor('m-logo--background', this)" class="btn btn-default btn-xs">
-						<input type="file" title="Parcourir" onchange="updateImage('m-logo--background', this)" class="btn btn-default btn-xs pull-center" />
-					</div>
+				<div class="m-logo--inputs pos-absolute hide-to-upload">
+					<input type="color" onclick="updateCanvasColor('m-logo--background', this)" onchange="updateCanvasColor('m-logo--background', this)" class="btn btn-default btn-xs">
+					<input type="file" title="Parcourir" onchange="updateCanvasBackground('m-logo--background', this)" class="btn btn-default btn-xs pull-center" />
 				</div>
+
+				<canvas width="500" height="500" id="m-logo--background">Votre navigateur ne supporte pas les canvas !</canvas>
 			</div>
 
 			<div class="m-copyright pos-absolute hide-to-upload">
-				<p>Made with <span class="glyphicon glyphicon-heart" style="color: #e74c3c;"></span> in France by <a href="http://tiste.io">Tiste</a></p>
+				<small>Made with <span class="glyphicon glyphicon-heart" style="color: #e74c3c;"></span> in France by <a href="http://tiste.io">Tiste</a></small>
 			</div>
 		</div>
 

@@ -33,16 +33,9 @@ html, body {
   left: 20px;
 }
 
-.m-logo,
-#m-logo--background {
+.m-logo {
   width: 500px;
   height: 500px;
-}
-
-#m-logo--background {
-  overflow: hidden;
-  -webkit-mask-image: url(../images/frame.png);
-  background: url(../images/fauve.jpg);
 }
 
 .m-copyright {
