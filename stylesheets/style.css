@@ -34,3 +34,18 @@ html, body {
   right: 10px;
   text-align: right;
 }
+
+.tips {
+  background: rgba(0, 0, 0, .8);
+  color: white;
+  display: none;
+  font-size: 1.5em;
+  height: 100%;
+  left: 0;
+  line-height: 1.4em;
+  padding: 10% 33%;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 10;
+}

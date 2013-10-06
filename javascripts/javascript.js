@@ -12,6 +12,14 @@ $(document).ready(function () {
 $(function () {
 	$('input[type=file]').bootstrapFileInput();
 
+  if (!$.cookie('tips')) {
+    $('.tips').fadeIn().delay(25000).fadeOut();
+    $.cookie('tips', '1', { expires: 1, path: '/' });
+  }
+  $('.tips').on('click', function () {
+    $('.tips').stop().fadeOut();
+  });
+
   canvasBg.setAttribute('width', $(window).width());
   canvasBg.setAttribute('height', $(window).height());
 
