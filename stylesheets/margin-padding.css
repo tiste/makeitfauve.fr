@@ -3,6 +3,10 @@
   padding-bottom: 40px;
 }
 
+.mnl {
+  margin-bottom: -6px;
+}
+
 .ptn,
 .pvn,
 .pan {
