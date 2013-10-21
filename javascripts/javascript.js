@@ -6,7 +6,7 @@ $(document).ready(function () {
   ctxBg       = canvasBg.getContext('2d');
   ctxLogo     = canvasLogo.getContext('2d');
   mask        = new Image();
-  mask.src    = 'images/frame.png';
+  mask.src    = ['images/frame0.png', 'images/frame1.png'].sort(function() {return 0.5 - Math.random()})[1];
 });
 
 $(function () {
@@ -135,6 +135,10 @@ function updateLogoColor(id, input) {
   }
 }
 
+function updateLogoOpacity(id, input) {
+  document.getElementById(id).style.opacity = input.value / 100;
+}
+
 function toImage() {
   var inputs = $('.hide-to-upload');
   inputs.hide();
@@ -147,4 +151,8 @@ function toImage() {
       inputs.show();
     }
   });
+}
+
+function toggleEdit() {
+  $('.m-edit').slideToggle();
 }

@@ -16,23 +16,40 @@
 		<![endif]-->
 	</head>
 	<body>
+		<div class="container m-edit ptl pbl hide-to-upload">
+			<div class="row text-center">
+				<div class="col-md-6">
+					<span class="label label-default">Fond</span>
+
+					<input type="color" onclick="updateColor('m-background', this)" onchange="updateColor('m-background', this)" class="btn btn-default btn-xs">
+					<input type="file" title="Parcourir" onchange="updateBackground('m-background', this)" class="btn btn-default btn-xs" />
+				</div>
+
+				<div class="col-md-6">
+					<span class="label label-default">Logo</span>
+
+					<input type="color" onclick="updateLogoColor('m-logo--background', this)" onchange="updateLogoColor('m-logo--background', this)" class="btn btn-default btn-xs">
+					<input type="file" title="Parcourir" onchange="updateLogoBackground('m-logo--background', this)" class="btn btn-default btn-xs" />
+					<input type="number" value="100" min="0" max="100" onchange="updateLogoOpacity('m-logo--background', this)" class="btn btn-default btn-xs" />
+				</div>
+			</div>
+		</div>
+
 		<canvas id="m-background" class="pos-absolute">Votre navigateur ne supporte pas les canvas !</canvas>
 
 		<div class="container-fluid pll prl ptx">
 			<div class="row hide-to-upload">
-				<input type="color" onclick="updateColor('m-background', this)" onchange="updateColor('m-background', this)" class="btn btn-default btn-xs">
-				<input type="file" title="Parcourir" onchange="updateBackground('m-background', this)" class="btn btn-default btn-xs" />
+				<button type="button" onclick="toggleEdit()" class="btn btn-success btn-xs">
+					<span class="glyphicon glyphicon-edit"></span> Editer
+				</button>
+
 				<input type="button" value="Je le veux !" onclick="toImage()" class="btn btn-default btn-xs" />
+
 				<a href="https://twitter.com/intent/tweet?button_hashtag=makeitFAUVE&text=Je%20viens%20de%20cr%C3%A9er%20mon%20fond%20d'%C3%A9cran%20FAUVE%20%E2%89%A0%20http%3A%2F%2Fmakeitfauve.fr" class="twitter-hashtag-button mnl" data-lang="fr" data-related="tiste,FAUVEcorp">Tweet #makeitFAUVE</a>
 				<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
 			</div>
 
 			<div class="m-logo pos-absolute pull-center">
-				<div class="m-logo--inputs pos-absolute hide-to-upload">
-					<input type="color" onclick="updateLogoColor('m-logo--background', this)" onchange="updateLogoColor('m-logo--background', this)" class="btn btn-default btn-xs">
-					<input type="file" title="Parcourir" onchange="updateLogoBackground('m-logo--background', this)" class="btn btn-default btn-xs pull-center" />
-				</div>
-
 				<canvas width="500" height="500" id="m-logo--background">Votre navigateur ne supporte pas les canvas !</canvas>
 			</div>
 

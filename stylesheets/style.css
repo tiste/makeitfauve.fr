@@ -3,16 +3,20 @@ html, body {
   height: 100%;
 }
 
-#m-background {
-  z-index: -1;
-}
-
 .pull-center {
   margin: auto;
 }
 
 .pos-absolute {
   position: absolute;
+}
+
+.m-edit {
+  display: none;
+}
+
+#m-background {
+  z-index: -1;
 }
 
 .m-logo {
